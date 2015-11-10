@@ -1,0 +1,157 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Project 2 | Justin K Joe</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome.min.css" rel="stylesheet">
+    <link href="lightbox.css" rel="stylesheet">
+    <link href="animate.min.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <link href="responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <script src="Chart.js"></script>
+  </head><body>
+    <header id="header">
+      <div class="navbar navbar-inverse" role="banner">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+
+            <h1><img src="http://i374.photobucket.com/albums/oo189/justinkjoe/Personal%20Website/logobanner-jkjoe_zpsxl8ox7ih.png" alt="logo"></h1>
+
+            </a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-right navbar-nav">
+              <li class="active" id="Home">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="active" id="About">
+                <a href="about.html">About</a>
+              </li>
+              <li id="Portfolio" class="active">
+                <a href="portfolio.html">Portfolio</a>
+              </li>
+              <li id="Contact" class="active">
+                <a href="redirect-404.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="search">
+            <form role="form">
+              <i class="fa fa-search hidden-lg hidden-md hidden-sm hidden-xs"></i>
+              <div class="field-toggle">
+                <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--/#header-->
+    <!--/#header-->
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="action">
+            <div class="col-sm-12">
+              <h1 class="title">A Study in
+                <font color="AA0000">Red</font>
+              </h1>
+              <p>
+                <i>A Look at the Popularity of Starbucks Red Cups</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--/#page-breadcrumb-->
+    <br>
+    <section id="data-graph" data-wow-delay="300ms" class="section-responsive" data-wow-duration="1000ms">
+      <div class="container">
+        <div class="col-centered col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div style="width: 70%" class="center-block div-responsive">
+            <canvas id="canvas" height="400" width="600" style="width: 800px; height: 400px;"></canvas>
+          </div>
+          <div id="my-Bar-legend"></div>
+          <script>
+            var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+                                          	
+                                          	var barChartData = {
+                                          		labels : ["Ten Minutes","Twenty Minutes","Thirty Minutes","Forty Minutes","Fifty Minutes","Sixty Minutes"],
+                                          		    
+                                          		datasets : [
+                                          			{
+                                          				fillColor : "rgba(170, 0, 0, 1)",
+                                          				showInLegend: true,
+                                          				strokeColor : "rgba(170, 0, 0, 1)",
+                                          				highlightFill: "rgba(220,220,220,0.75)",
+                                          				highlightStroke: "rgba(220,220,220,1)",
+                                          				data : [55,55,45,55,53,46]		    
+                                          			},
+                                          			{
+                                          				fillColor : "rgba(201, 100, 17, 1)",
+                                          				showInLegend: true,
+                                          				strokeColor : "rgba(201, 100, 17, 1)",
+                                          				highlightFill: "rgba(220,220,220,0.75)",
+                                          				highlightStroke: "rgba(220,220,220,1)",
+                                          				data : [125,112,119,111,110,94]		    
+                                          			},
+                                          		]
+                                          	}
+                                          	
+                                          	var options = {
+                                          	legendTemplate : "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+                                          	}
+                                          	window.onload = function(){
+                                          		var ctx = document.getElementById("canvas").getContext("2d");
+                                          		window.myBar = new Chart(ctx).Bar(barChartData, options, {
+                                          			responsive : true,
+                                          		
+                                          		});
+                                          		var legend = myBar.generateLegend();
+                                          		$('#chart').append(legend);
+                                          		
+                                          	};
+          </script>
+        </div>
+        <div class="col-sm-12">
+		<br>
+          <p class="text-justify">As autumn settles in, Starbucks is launching their seasonal red cups,marking
+            the long-awaited return of holiday beverages. Finally, the infamous Peppermint
+            Mocha is back! According to Starbucks, the tradition of the red cup has
+            been highly anticipated since the introduction of the Christmas Blend in
+            1984. In 2014, the company reported a holiday cup being shared on Instagram
+            every 14 seconds. Now that's a lot of coffee! Instagram sharing is encouraged
+            by the annual Red Cup Contest, which has customers snap a photo and tag
+            it #redcupcontest for a chance at a Starbucks eGift Card.</p>
+          <p></p>
+          <p>For this data, I decided to be more specific and take a look at how many
+            variations of the tags #RedCup and #RedCups is used within one hour. Close
+            to 700 tweets came in around 11 p.m. alone, I guess everyone needs their
+            red cup!</p>
+          <p>How (and when) do you like your red cup?</p>
+        </div>
+      </div>
+    </section>
+    <!--/#biography-->
+  
+
+</body></html>
